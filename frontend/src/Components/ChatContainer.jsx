@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { useChatStore } from "../store/useChatStore";
+import { useChatStore } from "../store1/useChatStore";
 import ChatHeader from "./ChatHeader";
 import MessagesInput from "./MessagesInput";
 import MessageSkeleton from "./MessageSkeleton";
-import { useAuthStore } from "../store/useAuthStore";
+import { useAuthStore } from "../store1/useAuthStore";
 import natureImage from "../assets/profileImg.jpg";
 import { formatMessageTime } from "../lib/utils";
 

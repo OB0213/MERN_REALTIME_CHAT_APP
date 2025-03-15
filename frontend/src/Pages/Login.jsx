@@ -8,7 +8,7 @@ import {
   Loader2,
 } from "lucide-react";
 import React, { useState } from "react";
-import { useAuthStore } from "../store/useAuthStore";
+import { useAuthStore } from "../store1/useAuthStore";
 import { Link } from "react-router-dom";
 import AuthImagePattern from "../Components/AuthImagePattern";
 import toast from "react-hot-toast";

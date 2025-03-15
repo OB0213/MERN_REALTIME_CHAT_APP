@@ -1,5 +1,5 @@
 import React from "react";
-import { useChatStore } from "../store/useChatStore";
+import { useChatStore } from "../store1/useChatStore";
 import Sidebar from "../Components/Sidebar";
 import NoChatSelected from "../Components/NoChatSelected";
 import ChatContainer from "../Components/ChatContainer";

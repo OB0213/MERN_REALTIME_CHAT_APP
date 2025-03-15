@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useChatStore } from "../store/useChatStore";
-import { useAuthStore } from "../store/useAuthStore";
+import { useChatStore } from "../store1/useChatStore";
+import { useAuthStore } from "../store1/useAuthStore";
 import natureImage from "../assets/profileImg.jpg";
 import { X } from "lucide-react";
 

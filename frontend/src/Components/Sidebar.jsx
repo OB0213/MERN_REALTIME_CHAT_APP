@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { useChatStore } from "../store/useChatStore";
+import { useChatStore } from "../store1/useChatStore";
 import SidebarSkeleton from "./SidebarSkeleton";
 import { Users } from "lucide-react";
 import natureImage from "../assets/profileImg.jpg";
-import { useAuthStore } from "../store/useAuthStore";
+import { useAuthStore } from "../store1/useAuthStore";
 
 function Sidebar() {
   const { getUsers, users, selectedUser, setSelectedUsers, isUsersLoading } =

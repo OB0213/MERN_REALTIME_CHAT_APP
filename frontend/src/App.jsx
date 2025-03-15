@@ -9,10 +9,10 @@ import Signup from "./Pages/Signup";
 import Settings from "./Pages/Settings";
 import Profile from "./Pages/Profile";
 import Navbar from "./Components/Navbar";
-import { useAuthStore } from "./store/useAuthStore";
+import { useAuthStore } from "./store1/useAuthStore";
 import { Loader } from "lucide-react";
 import { Toaster } from "react-hot-toast";
-import { useThemeStore } from "./store/useThemeStore";
+import { useThemeStore } from "./store1/useThemeStore";
 
 function App() {
   const [count, setCount] = useState(0);
