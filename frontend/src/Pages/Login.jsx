@@ -13,9 +13,8 @@ import { Link } from "react-router-dom";
 import AuthImagePattern from "../Components/AuthImagePattern";
 import toast from "react-hot-toast";
 
-
 function Login() {
-   const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [formdata, setFormData] = useState({
     email: "",
     password: "",
@@ -58,9 +57,7 @@ function Login() {
                 <MessageSquare className="size-6 text-primary"></MessageSquare>
               </div>
               <h1 className="text-2xl font-bold mt-2">Welcome Back</h1>
-              <p className="text-base-content/60">
-                Sign In into your account
-              </p>
+              <p className="text-base-content/60">Sign In into your account</p>
             </div>
           </div>
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -146,4 +143,4 @@ function Login() {
   );
 }
 
-export default Login
+export default Login;
