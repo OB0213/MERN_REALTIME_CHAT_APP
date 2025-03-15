@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { useChatStore } from '../Store/useChatStore';
-import { useAuthStore } from '../store/useAuthStore';
-import natureImage from '../assets/profileImg.jpg';
-import { X } from 'lucide-react';
+import React, { useState } from "react";
+import { useChatStore } from "../store/useChatStore";
+import { useAuthStore } from "../store/useAuthStore";
+import natureImage from "../assets/profileImg.jpg";
+import { X } from "lucide-react";
 
 function ChatHeader() {
-    const {selectedUser,setSelectedUsers}=useChatStore();
-    const {onlineUsers}=useAuthStore();
+  const { selectedUser, setSelectedUsers } = useChatStore();
+  const { onlineUsers } = useAuthStore();
   return (
     <div className="p-2.5 border-b border-base-300">
       <div className="flex items-center justify-between">
@@ -14,12 +14,15 @@ function ChatHeader() {
           {/* Avatar */}
           <div className="avatar">
             <div className="w-24 rounded-full relative">
-             <img src={selectedUser.profilePic || natureImage} alt={selectedUser.fullName}></img>
+              <img
+                src={selectedUser.profilePic || natureImage}
+                alt={selectedUser.fullName}
+              ></img>
             </div>
           </div>
 
           {/* User Info */}
-             <div>
+          <div>
             <h3 className="font-medium">{selectedUser.fullName}</h3>
             <p className="text-sm text-base-content/70">
               {onlineUsers.includes(selectedUser._id) ? "Online" : "Offline"}
@@ -31,11 +34,9 @@ function ChatHeader() {
         <button onClick={() => setSelectedUsers(null)}>
           <X />
         </button>
-
-        </div>
       </div>
-    
+    </div>
   );
 }
 
-export default ChatHeader
+export default ChatHeader;

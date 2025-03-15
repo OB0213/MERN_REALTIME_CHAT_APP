@@ -1,9 +1,9 @@
-import React from 'react';
-import { useThemeStore } from '../Store/useThemeStore';
-import { THEMES } from '../colorThemes';
+import React from "react";
+import { useThemeStore } from "../store/useThemeStore";
+import { THEMES } from "../colorThemes";
 
 function Settings() {
-  const {theme,setTheme}=useThemeStore();
+  const { theme, setTheme } = useThemeStore();
   return (
     <div className="h-screen container mx-auto px-4 max-w-5xl py-24">
       <div className="space-y-16">
@@ -33,10 +33,8 @@ function Settings() {
                   <div className="rounded bg-neutral"></div>
                 </div>
               </div>
-              <span className='text-[11px] font-medium truncate w-full text-center'>
-                {
-                  elements.charAt(0).toUpperCase()+elements.slice(1)
-                }
+              <span className="text-[11px] font-medium truncate w-full text-center">
+                {elements.charAt(0).toUpperCase() + elements.slice(1)}
               </span>
             </button>
           ))}
@@ -46,4 +44,4 @@ function Settings() {
   );
 }
 
-export default Settings
+export default Settings;

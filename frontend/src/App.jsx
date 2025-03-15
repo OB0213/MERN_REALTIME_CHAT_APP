@@ -9,17 +9,17 @@ import Signup from "./Pages/Signup";
 import Settings from "./Pages/Settings";
 import Profile from "./Pages/Profile";
 import Navbar from "./Components/Navbar";
-import { useAuthStore } from "./Store/useAuthStore"
+import { useAuthStore } from "./store/useAuthStore";
 import { Loader } from "lucide-react";
-import {Toaster} from 'react-hot-toast';
-import { useThemeStore } from "./Store/useThemeStore";
+import { Toaster } from "react-hot-toast";
+import { useThemeStore } from "./store/useThemeStore";
 
 function App() {
   const [count, setCount] = useState(0);
-  const { authUser, checkAuth, isCheckingAuth,onlineUsers } = useAuthStore();
- const {theme}= useThemeStore();
- console.log("Theme is:",theme);
- console.log(onlineUsers);
+  const { authUser, checkAuth, isCheckingAuth, onlineUsers } = useAuthStore();
+  const { theme } = useThemeStore();
+  console.log("Theme is:", theme);
+  console.log(onlineUsers);
 
   useEffect(() => {
     checkAuth();

@@ -1,40 +1,44 @@
-import React, { useEffect } from 'react'
-import { useChatStore } from '../Store/useChatStore';
-import ChatHeader from './ChatHeader';
-import MessagesInput from './MessagesInput';
-import MessageSkeleton from './MessageSkeleton';
-import { useAuthStore } from '../store/useAuthStore';
-import natureImage from '../assets/profileImg.jpg';
-import { formatMessageTime } from '../lib/utils';
+import React, { useEffect } from "react";
+import { useChatStore } from "../store/useChatStore";
+import ChatHeader from "./ChatHeader";
+import MessagesInput from "./MessagesInput";
+import MessageSkeleton from "./MessageSkeleton";
+import { useAuthStore } from "../store/useAuthStore";
+import natureImage from "../assets/profileImg.jpg";
+import { formatMessageTime } from "../lib/utils";
 
 function ChatContainer() {
-   const {
-     messages,
-     getMessages,
-     isMessagesLoading,
-     selectedUser,
-     subscribeToMessage,
-     unSubscribeFromMessages,
-   } = useChatStore();
-   const {authUser}=useAuthStore();
-   useEffect(()=>{
+  const {
+    messages,
+    getMessages,
+    isMessagesLoading,
+    selectedUser,
+    subscribeToMessage,
+    unSubscribeFromMessages,
+  } = useChatStore();
+  const { authUser } = useAuthStore();
+  useEffect(() => {
     getMessages(selectedUser._id);
     subscribeToMessage();
-    return ()=>{
-            unSubscribeFromMessages();
-    }
-   },[selectedUser._id,getMessages,subscribeToMessage,unSubscribeFromMessages]);
-   console.log(messages);
-   if(isMessagesLoading)
-   {
+    return () => {
+      unSubscribeFromMessages();
+    };
+  }, [
+    selectedUser._id,
+    getMessages,
+    subscribeToMessage,
+    unSubscribeFromMessages,
+  ]);
+  console.log(messages);
+  if (isMessagesLoading) {
     return (
-<div className='flex-1 flex flex-col overflow-auto'>
-    <MessageSkeleton />
-  
-    <MessagesInput />
-</div>
-)
-   }
+      <div className="flex-1 flex flex-col overflow-auto">
+        <MessageSkeleton />
+
+        <MessagesInput />
+      </div>
+    );
+  }
   return (
     <div className="flex flex-1 flex-col overflow-auto">
       <ChatHeader />
@@ -83,4 +87,4 @@ function ChatContainer() {
   );
 }
 
-export default ChatContainer
+export default ChatContainer;

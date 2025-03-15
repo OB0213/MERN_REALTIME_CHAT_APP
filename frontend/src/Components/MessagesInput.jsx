@@ -1,64 +1,55 @@
-import React, { useRef,useState } from 'react'
-import { useChatStore } from '../Store/useChatStore';
-import { Image,Send,X } from 'lucide-react';
-import toast from 'react-hot-toast';
+import React, { useRef, useState } from "react";
+import { useChatStore } from "../store/useChatStore";
+import { Image, Send, X } from "lucide-react";
+import toast from "react-hot-toast";
 
 function MessagesInput() {
-    const [text,setText]=useState('');
-    const [imagePreview,setImagePreview]=useState(null);
-    const fileInputRef=useRef(null);
-    const {sendMessage}=useChatStore();
+  const [text, setText] = useState("");
+  const [imagePreview, setImagePreview] = useState(null);
+  const fileInputRef = useRef(null);
+  const { sendMessage } = useChatStore();
 
-    const handleImageChange=(e)=>{
-        const file=e.target.files[0];
-        if(!file.type.startsWith("image/"))
-        {
-            toast.error("Please Select an Image File");
-            return;
-        }
-
-        const reader=new FileReader();
-        reader.onloadend=()=>{
-            setImagePreview(reader.result);
-        }
-
-        reader.readAsDataURL(file);
-
-        
-
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (!file.type.startsWith("image/")) {
+      toast.error("Please Select an Image File");
+      return;
     }
 
-    const removeImage=()=>{
-        setImagePreview(null);
-        if(fileInputRef.current)
-        {
-            fileInputRef.current.value=null;
-        }
-    }
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setImagePreview(reader.result);
+    };
 
-    const handleSendMessage=async(e)=>{
-            e.preventDefault();
-            if(!text.trim() && !imagePreview)
-            {
-                return;
-            }
-            try{
-                await sendMessage({
-                    text:text.trim(),
-                    image:imagePreview,
-                });
-                setText("");
-                setImagePreview(null);
-                if(fileInputRef.current)
-                {
-                    fileInputRef.current.value=""
-                }
-            }
-            catch(err)
-            {
-                console.log("Failed to send Message:",err);
-            }
+    reader.readAsDataURL(file);
+  };
+
+  const removeImage = () => {
+    setImagePreview(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = null;
     }
+  };
+
+  const handleSendMessage = async (e) => {
+    e.preventDefault();
+    if (!text.trim() && !imagePreview) {
+      return;
+    }
+    try {
+      await sendMessage({
+        text: text.trim(),
+        image: imagePreview,
+      });
+      setText("");
+      setImagePreview(null);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
+    } catch (err) {
+      console.log("Failed to send Message:", err);
+    }
+  };
   return (
     <div className="p-4 w-full">
       {imagePreview && (
@@ -118,4 +109,4 @@ function MessagesInput() {
   );
 }
 
-export default MessagesInput
+export default MessagesInput;
