@@ -9,7 +9,7 @@ import Signup from "./Pages/Signup";
 import Settings from "./Pages/Settings";
 import Profile from "./Pages/Profile";
 import Navbar from "./Components/Navbar";
-import { useAuthStore } from "./store/useAuthStore";
+import { useAuthStore } from "./store/useAuthStore.js";
 import { Loader } from "lucide-react";
 import { Toaster } from "react-hot-toast";
 import { useThemeStore } from "./store/useThemeStore";
